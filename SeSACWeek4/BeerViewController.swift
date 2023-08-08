@@ -51,11 +51,11 @@ extension BeerViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
+//                print("JSON: \(json)")
                 
-                let beerName = json["name"].stringValue
-                let beerInfo = json["description"].stringValue
-                let imageURL = URL(string: json["image_url"].stringValue)
+                let beerName = json[0]["name"].stringValue
+                let beerInfo = json[0]["description"].stringValue
+                let imageURL = URL(string: json[0]["image_url"].stringValue)
                 
                 self.beerImageView.kf.setImage(with: imageURL)
                 self.beerNameLabel.text = beerName
@@ -77,11 +77,13 @@ extension BeerViewController {
     }
     
     func designNameLabel() {
+        beerNameLabel.text = ""
         beerNameLabel.textAlignment = .center
         beerNameLabel.font = .boldSystemFont(ofSize: 15)
     }
 
     func designInfoLabel() {
+        beerInfoLabel.text = ""
         beerInfoLabel.textAlignment = .center
         beerInfoLabel.font = .boldSystemFont(ofSize: 13)
         beerInfoLabel.numberOfLines = 0

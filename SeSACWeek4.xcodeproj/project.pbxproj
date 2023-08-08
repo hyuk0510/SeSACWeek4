@@ -23,6 +23,8 @@
 		D87337C72A81E78000BE6F6A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337C62A81E78000BE6F6A /* VideoViewController.swift */; };
 		D87337C92A820DCD00BE6F6A /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337C82A820DCD00BE6F6A /* BeerViewController.swift */; };
 		D87337CB2A821E2F00BE6F6A /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */; };
+		D87337D22A82284A00BE6F6A /* BeerListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337D02A82284A00BE6F6A /* BeerListCollectionViewCell.swift */; };
+		D87337D32A82284A00BE6F6A /* BeerListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		D87337C62A81E78000BE6F6A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = SOURCE_ROOT; };
 		D87337C82A820DCD00BE6F6A /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewController.swift; sourceTree = SOURCE_ROOT; };
+		D87337D02A82284A00BE6F6A /* BeerListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListCollectionViewCell.swift; sourceTree = "<group>"; };
+		D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerListCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */,
+				D87337D02A82284A00BE6F6A /* BeerListCollectionViewCell.swift */,
+				D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */,
 				D87337C62A81E78000BE6F6A /* VideoViewController.swift */,
 				D873379E2A80966700BE6F6A /* AppDelegate.swift */,
 				D87337A02A80966700BE6F6A /* SceneDelegate.swift */,
@@ -162,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87337D32A82284A00BE6F6A /* BeerListCollectionViewCell.xib in Resources */,
 				D87337BC2A809B9D00BE6F6A /* .gitignore in Resources */,
 				D87337AB2A80966900BE6F6A /* LaunchScreen.storyboard in Resources */,
 				D87337A82A80966900BE6F6A /* Assets.xcassets in Resources */,
@@ -182,6 +189,7 @@
 				D87337CB2A821E2F00BE6F6A /* BeerListViewController.swift in Sources */,
 				D87337C52A81C4CD00BE6F6A /* WeatherViewController.swift in Sources */,
 				D87337A32A80966700BE6F6A /* ViewController.swift in Sources */,
+				D87337D22A82284A00BE6F6A /* BeerListCollectionViewCell.swift in Sources */,
 				D873379F2A80966700BE6F6A /* AppDelegate.swift in Sources */,
 				D87337A12A80966700BE6F6A /* SceneDelegate.swift in Sources */,
 				D87337C02A809C5C00BE6F6A /* APIKey.swift in Sources */,
