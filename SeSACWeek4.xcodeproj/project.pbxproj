@@ -17,6 +17,12 @@
 		D87337B72A8096BF00BE6F6A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D87337B62A8096BF00BE6F6A /* Kingfisher */; };
 		D87337BA2A8096CD00BE6F6A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D87337B92A8096CD00BE6F6A /* SwiftyJSON */; };
 		D87337BC2A809B9D00BE6F6A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D87337BB2A809B9D00BE6F6A /* .gitignore */; };
+		D87337BE2A809C2D00BE6F6A /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337BD2A809C2D00BE6F6A /* TranslationViewController.swift */; };
+		D87337C02A809C5C00BE6F6A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337BF2A809C5C00BE6F6A /* APIKey.swift */; };
+		D87337C52A81C4CD00BE6F6A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337C42A81C4CD00BE6F6A /* WeatherViewController.swift */; };
+		D87337C72A81E78000BE6F6A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337C62A81E78000BE6F6A /* VideoViewController.swift */; };
+		D87337C92A820DCD00BE6F6A /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337C82A820DCD00BE6F6A /* BeerViewController.swift */; };
+		D87337CB2A821E2F00BE6F6A /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,12 @@
 		D87337AA2A80966900BE6F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D87337AC2A80966900BE6F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87337BB2A809B9D00BE6F6A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D87337BD2A809C2D00BE6F6A /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		D87337BF2A809C5C00BE6F6A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		D87337C42A81C4CD00BE6F6A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		D87337C62A81E78000BE6F6A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = SOURCE_ROOT; };
+		D87337C82A820DCD00BE6F6A /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
+		D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +76,17 @@
 		D873379D2A80966700BE6F6A /* SeSACWeek4 */ = {
 			isa = PBXGroup;
 			children = (
+				D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */,
+				D87337C62A81E78000BE6F6A /* VideoViewController.swift */,
 				D873379E2A80966700BE6F6A /* AppDelegate.swift */,
 				D87337A02A80966700BE6F6A /* SceneDelegate.swift */,
 				D87337A22A80966700BE6F6A /* ViewController.swift */,
 				D87337BB2A809B9D00BE6F6A /* .gitignore */,
+				D87337BF2A809C5C00BE6F6A /* APIKey.swift */,
+				D87337BD2A809C2D00BE6F6A /* TranslationViewController.swift */,
 				D87337A42A80966700BE6F6A /* Main.storyboard */,
+				D87337C82A820DCD00BE6F6A /* BeerViewController.swift */,
+				D87337C42A81C4CD00BE6F6A /* WeatherViewController.swift */,
 				D87337A72A80966900BE6F6A /* Assets.xcassets */,
 				D87337A92A80966900BE6F6A /* LaunchScreen.storyboard */,
 				D87337AC2A80966900BE6F6A /* Info.plist */,
@@ -158,9 +176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87337C92A820DCD00BE6F6A /* BeerViewController.swift in Sources */,
+				D87337BE2A809C2D00BE6F6A /* TranslationViewController.swift in Sources */,
+				D87337C72A81E78000BE6F6A /* VideoViewController.swift in Sources */,
+				D87337CB2A821E2F00BE6F6A /* BeerListViewController.swift in Sources */,
+				D87337C52A81C4CD00BE6F6A /* WeatherViewController.swift in Sources */,
 				D87337A32A80966700BE6F6A /* ViewController.swift in Sources */,
 				D873379F2A80966700BE6F6A /* AppDelegate.swift in Sources */,
 				D87337A12A80966700BE6F6A /* SceneDelegate.swift in Sources */,
+				D87337C02A809C5C00BE6F6A /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
