@@ -24,32 +24,44 @@ class BeerListCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.contentMode = .scaleAspectFit
+        
+        designNameLabel()
+        designInfoTextView()
     }
+}
 
-    func configureCell() {
+extension BeerListCollectionViewCell {
+    func configureCell(index: Int) {
         let url = "https://api.punkapi.com/v2/beers"
 
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
-                
-                self.count = json.count
-                
-                for index in 0..<json.count {
-                    let imageURL = URL(string: json[index]["image_url"].stringValue)
-                    let beerName = json[index]["name"].stringValue
-                    let beerInfo = json[index]["description"].stringValue
-                    
-                    self.imageView.kf.setImage(with: imageURL)
-                    self.nameLabel.text = beerName
-                    self.infoTextView.text = beerInfo
-                }
+                                
+                let imageURL = URL(string: json[index]["image_url"].stringValue)
+                let beerName = json[index]["name"].stringValue
+                let beerInfo = json[index]["description"].stringValue
+                                
+                self.imageView.kf.setImage(with: imageURL)
+                self.nameLabel.text = beerName
+                self.infoTextView.text = beerInfo
                 
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func designNameLabel() {
+        nameLabel.textAlignment = .center
+        nameLabel.font = .boldSystemFont(ofSize: 15)
+        nameLabel.sizeToFit()
+    }
+    
+    func designInfoTextView() {
+        infoTextView.textAlignment = .center
+        infoTextView.font = .boldSystemFont(ofSize: 13)
     }
 }
