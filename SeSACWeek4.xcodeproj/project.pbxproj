@@ -26,6 +26,7 @@
 		D87337D22A82284A00BE6F6A /* BeerListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337D02A82284A00BE6F6A /* BeerListCollectionViewCell.swift */; };
 		D87337D32A82284A00BE6F6A /* BeerListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */; };
 		D87337D52A82398100BE6F6A /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337D42A82398100BE6F6A /* Json.swift */; };
+		D87337D72A83230B00BE6F6A /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337D62A83230B00BE6F6A /* VideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		D87337D02A82284A00BE6F6A /* BeerListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListCollectionViewCell.swift; sourceTree = "<group>"; };
 		D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerListCollectionViewCell.xib; sourceTree = "<group>"; };
 		D87337D42A82398100BE6F6A /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = SOURCE_ROOT; };
+		D87337D62A83230B00BE6F6A /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		D873379D2A80966700BE6F6A /* SeSACWeek4 */ = {
 			isa = PBXGroup;
 			children = (
+				D87337D62A83230B00BE6F6A /* VideoTableViewCell.swift */,
 				D87337D42A82398100BE6F6A /* Json.swift */,
 				D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */,
 				D87337D02A82284A00BE6F6A /* BeerListCollectionViewCell.swift */,
@@ -191,6 +194,7 @@
 				D87337C72A81E78000BE6F6A /* VideoViewController.swift in Sources */,
 				D87337CB2A821E2F00BE6F6A /* BeerListViewController.swift in Sources */,
 				D87337C52A81C4CD00BE6F6A /* WeatherViewController.swift in Sources */,
+				D87337D72A83230B00BE6F6A /* VideoTableViewCell.swift in Sources */,
 				D87337A32A80966700BE6F6A /* ViewController.swift in Sources */,
 				D87337D52A82398100BE6F6A /* Json.swift in Sources */,
 				D87337D22A82284A00BE6F6A /* BeerListCollectionViewCell.swift in Sources */,

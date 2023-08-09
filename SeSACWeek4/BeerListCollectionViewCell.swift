@@ -11,8 +11,6 @@ import SwiftyJSON
 import Kingfisher
 
 class BeerListCollectionViewCell: UICollectionViewCell {
-
-    var count = 0
     
     @IBOutlet var nameLabel: UILabel!
     
@@ -39,6 +37,7 @@ extension BeerListCollectionViewCell {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                //json.count
                                 
                 let imageURL = URL(string: json[index]["image_url"].stringValue)
                 let beerName = json[index]["name"].stringValue
