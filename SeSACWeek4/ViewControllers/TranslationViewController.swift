@@ -26,27 +26,44 @@ class TranslationViewController: UIViewController {
     }
     
     @IBAction func requestButtonPressed(_ sender: UIButton) {
+        let detectURL = "https://openapi.naver.com/v1/papago/detectLangs"
+        let translateURL = "https://openapi.naver.com/v1/papago/n2mt"
         
-        let url = "https://openapi.naver.com/v1/papago/n2mt"
         let header: HTTPHeaders = [
             "X-Naver-Client-Id": "\(APIKey.naverClientID)",
             "X-Naver-Client-Secret": "\(APIKey.naverClientSecret)"
         ]
-        let parameters: Parameters = [
-            "source": "ko",
+        
+        let detectParameters: Parameters = [
+            "query": originalTextView.text ?? ""
+        ]
+        
+        var translateParameters: Parameters = [
             "target": "en",
             "text": originalTextView.text ?? ""
         ]
         
-        AF.request(url, method: .post, parameters: parameters, headers: header).validate().responseJSON { response in
+        AF.request(detectURL, method: .post, parameters: detectParameters, headers: header).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
                 
-                let data = json["message"]["result"]["translatedText"].stringValue
+                let source = json["langCode"].stringValue
+                translateParameters.updateValue(source, forKey: "source")
                 
-                self.translateTextView.text = data
+                AF.request(translateURL, method: .post, parameters: translateParameters, headers: header).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        
+                        let data = json["message"]["result"]["translatedText"].stringValue
+                        
+                        self.translateTextView.text = data
+                        
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
                 
             case .failure(let error):
                 print(error)
