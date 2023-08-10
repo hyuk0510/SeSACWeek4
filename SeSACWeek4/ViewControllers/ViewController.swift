@@ -16,7 +16,9 @@ struct Movie {
 
 class ViewController: UIViewController {
 
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var movieTableView: UITableView!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
     
     var movieList: [Movie] = []
     
@@ -25,16 +27,21 @@ class ViewController: UIViewController {
         
         movieTableView.delegate = self
         movieTableView.dataSource = self
-        
         movieTableView.rowHeight = 60
         
-        callRequest()
+        searchBar.delegate = self
+        
+        indicatorView.isHidden = true
     }
 
     // .ipa  .app
     
-    func callRequest() {
-        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOffice)&targetDt=20120101"
+    func callRequest(date: String) {
+        
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false
+        
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOffice)&targetDt=\(date)"
         
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
@@ -48,6 +55,8 @@ class ViewController: UIViewController {
                     self.movieList.append(Movie(movieName: name, openDate: openDt))
                 }
                 
+                self.indicatorView.stopAnimating()
+                self.indicatorView.isHidden = true
                 self.movieTableView.reloadData()
             
             case .failure(let error):
@@ -70,5 +79,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = movieList[indexPath.row].openDate
         
         return cell
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
+            return
+        }
+        
+        //20220101 > 1. 8글자 2. 20233333 올바른 날짜 3. 날짜 범주
+        callRequest(date: text)
     }
 }

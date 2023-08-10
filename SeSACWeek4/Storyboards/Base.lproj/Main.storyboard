@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3d-NF-taI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QaR-ip-d2v">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -57,21 +57,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kjm-hX-ZME">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9qM-BM-cYM" secondAttribute="trailing" id="9k7-ex-ZUX"/>
                             <constraint firstItem="3PI-ts-aBO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JOJ-7l-TIB"/>
+                            <constraint firstItem="kjm-hX-ZME" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Su1-V9-Ksu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9qM-BM-cYM" secondAttribute="bottom" id="YMq-52-Ylf"/>
                             <constraint firstItem="3PI-ts-aBO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YWv-KY-B4a"/>
+                            <constraint firstItem="kjm-hX-ZME" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZDB-CM-ehK"/>
                             <constraint firstItem="9qM-BM-cYM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cWG-BC-xsG"/>
                             <constraint firstItem="3PI-ts-aBO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kHV-MG-jVq"/>
                             <constraint firstItem="9qM-BM-cYM" firstAttribute="top" secondItem="3PI-ts-aBO" secondAttribute="bottom" id="pO1-2a-PoC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="kjm-hX-ZME" id="iF6-MB-uGD"/>
                         <outlet property="movieTableView" destination="9qM-BM-cYM" id="dXI-ZD-kZ6"/>
+                        <outlet property="searchBar" destination="3PI-ts-aBO" id="IMy-a4-dCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -307,6 +314,68 @@
             </objects>
             <point key="canvasLocation" x="2765.6488549618321" y="4.9295774647887329"/>
         </scene>
+        <!--Translation View Controller-->
+        <scene sceneID="mUB-eR-nox">
+            <objects>
+                <viewController storyboardIdentifier="TranslationViewController" id="QaR-ip-d2v" customClass="TranslationViewController" customModule="SeSACWeek4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fko-jJ-bav">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0F-vT-wW5">
+                                <rect key="frame" x="20" y="389.66666666666669" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dF0-Vt-Oxw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="requestButtonPressed:" destination="QaR-ip-d2v" eventType="touchUpInside" id="Oeg-6e-eD9"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7cC-aG-b9h">
+                                <rect key="frame" x="20" y="459.66666666666674" width="353" height="338.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YvQ-VO-UFW">
+                                <rect key="frame" x="20" y="79" width="353" height="290.66666666666669"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PeJ-hE-Gj2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z0F-vT-wW5" firstAttribute="leading" secondItem="PeJ-hE-Gj2" secondAttribute="leading" constant="20" id="48h-DE-Ojo"/>
+                            <constraint firstItem="YvQ-VO-UFW" firstAttribute="leading" secondItem="PeJ-hE-Gj2" secondAttribute="leading" constant="20" id="Fkt-f1-c0t"/>
+                            <constraint firstItem="7cC-aG-b9h" firstAttribute="leading" secondItem="PeJ-hE-Gj2" secondAttribute="leading" constant="20" id="I52-Vc-WCp"/>
+                            <constraint firstItem="PeJ-hE-Gj2" firstAttribute="trailing" secondItem="z0F-vT-wW5" secondAttribute="trailing" constant="20" id="Pfy-xS-7nx"/>
+                            <constraint firstItem="PeJ-hE-Gj2" firstAttribute="trailing" secondItem="7cC-aG-b9h" secondAttribute="trailing" constant="20" id="PqL-KJ-ANF"/>
+                            <constraint firstItem="PeJ-hE-Gj2" firstAttribute="bottom" secondItem="7cC-aG-b9h" secondAttribute="bottom" constant="20" id="V3s-mx-nEa"/>
+                            <constraint firstItem="z0F-vT-wW5" firstAttribute="top" secondItem="YvQ-VO-UFW" secondAttribute="bottom" constant="20" id="cus-m2-EEg"/>
+                            <constraint firstItem="7cC-aG-b9h" firstAttribute="top" secondItem="z0F-vT-wW5" secondAttribute="bottom" constant="20" id="qin-r6-vy1"/>
+                            <constraint firstItem="YvQ-VO-UFW" firstAttribute="top" secondItem="PeJ-hE-Gj2" secondAttribute="top" constant="20" id="qvc-Lz-i5Q"/>
+                            <constraint firstItem="PeJ-hE-Gj2" firstAttribute="trailing" secondItem="YvQ-VO-UFW" secondAttribute="trailing" constant="20" id="wow-gh-Vrt"/>
+                            <constraint firstItem="YvQ-VO-UFW" firstAttribute="height" secondItem="7cC-aG-b9h" secondAttribute="height" multiplier="0.85906" id="xak-yS-bH7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="originalTextView" destination="YvQ-VO-UFW" id="cc1-gF-i4C"/>
+                        <outlet property="requestButton" destination="z0F-vT-wW5" id="JcA-Bo-hB1"/>
+                        <outlet property="translateTextView" destination="7cC-aG-b9h" id="Utr-FQ-xV2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Nn-kn-2mc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777.8625954198474" y="669.71830985915494"/>
+        </scene>
         <!--Beer List View Controller-->
         <scene sceneID="3km-UX-hn7">
             <objects>
@@ -355,6 +424,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
