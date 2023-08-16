@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class VideoTableViewCell: UITableViewCell {
 
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         thumbnailImageView.contentMode = .scaleToFill
@@ -20,5 +21,14 @@ class VideoTableViewCell: UITableViewCell {
         titleLabel.numberOfLines = 0
         contentLabel.font = .systemFont(ofSize: 13)
         contentLabel.numberOfLines = 2
+    }
+    
+    func configureCell(data: Document) {
+        let url = URL(string: data.thumbnail)
+        let contents = "\(data.author) | \(data.playTime)회\n\(data.datetime)"
+        titleLabel.text = data.title
+        contentLabel.text = contents
+        
+        thumbnailImageView.kf.setImage(with: url)
     }
 }

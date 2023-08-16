@@ -11,7 +11,6 @@ import SwiftyJSON
 import Kingfisher
 
 class BeerViewController: UIViewController {
-    static let identifier = "BeerViewController"
     
     @IBOutlet var titleLabel: UILabel!
         

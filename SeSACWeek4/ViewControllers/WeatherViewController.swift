@@ -10,8 +10,6 @@ import Alamofire
 import SwiftyJSON
 
 class WeatherViewController: UIViewController {
-
-    static let identifier = "WeatherViewController"
     
     @IBOutlet var weatherLabel: UILabel!
     @IBOutlet var tempLabel: UILabel!

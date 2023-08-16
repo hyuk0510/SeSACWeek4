@@ -27,6 +27,15 @@
 		D87337D32A82284A00BE6F6A /* BeerListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */; };
 		D87337D52A82398100BE6F6A /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337D42A82398100BE6F6A /* Json.swift */; };
 		D87337D72A83230B00BE6F6A /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337D62A83230B00BE6F6A /* VideoTableViewCell.swift */; };
+		D87337F62A85BA9E00BE6F6A /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337F52A85BA9D00BE6F6A /* ReusableViewProtocol.swift */; };
+		D87337F82A85BCFB00BE6F6A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337F72A85BCFB00BE6F6A /* UserDefaultsHelper.swift */; };
+		D87337FA2A85C51100BE6F6A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337F92A85C51100BE6F6A /* Endpoint.swift */; };
+		D87337FC2A85C5CA00BE6F6A /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337FB2A85C5CA00BE6F6A /* URL+Extension.swift */; };
+		D87337FE2A85C78100BE6F6A /* KakaoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337FD2A85C78100BE6F6A /* KakaoAPIManager.swift */; };
+		D87338002A85E36400BE6F6A /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87337FF2A85E36400BE6F6A /* TranslateAPIManager.swift */; };
+		D87338022A85F9EB00BE6F6A /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87338012A85F9EB00BE6F6A /* AsyncViewController.swift */; };
+		D8A5D0052A8A022A008329BE /* BoxOfficeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A5D0042A8A022A008329BE /* BoxOfficeData.swift */; };
+		D8A5D01E2A8CB14F008329BE /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A5D01D2A8CB14F008329BE /* CodableData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +58,15 @@
 		D87337D12A82284A00BE6F6A /* BeerListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerListCollectionViewCell.xib; sourceTree = "<group>"; };
 		D87337D42A82398100BE6F6A /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = SOURCE_ROOT; };
 		D87337D62A83230B00BE6F6A /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoTableViewCell.swift; path = SeSACWeek4/Cells/VideoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D87337F52A85BA9D00BE6F6A /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		D87337F72A85BCFB00BE6F6A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		D87337F92A85C51100BE6F6A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D87337FB2A85C5CA00BE6F6A /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		D87337FD2A85C78100BE6F6A /* KakaoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIManager.swift; sourceTree = "<group>"; };
+		D87337FF2A85E36400BE6F6A /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = SOURCE_ROOT; };
+		D87338012A85F9EB00BE6F6A /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = SOURCE_ROOT; };
+		D8A5D0042A8A022A008329BE /* BoxOfficeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoxOfficeData.swift; path = ViewControllers/BoxOfficeData.swift; sourceTree = "<group>"; };
+		D8A5D01D2A8CB14F008329BE /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +102,8 @@
 		D873379D2A80966700BE6F6A /* SeSACWeek4 */ = {
 			isa = PBXGroup;
 			children = (
+				D8A5D0042A8A022A008329BE /* BoxOfficeData.swift */,
+				D87337FF2A85E36400BE6F6A /* TranslateAPIManager.swift */,
 				D87337F42A845F6900BE6F6A /* Storyboards */,
 				D87337F32A845F4600BE6F6A /* Cells */,
 				D87337F22A845F2F00BE6F6A /* ViewControllers */,
@@ -94,6 +114,12 @@
 				D87337BF2A809C5C00BE6F6A /* APIKey.swift */,
 				D87337A72A80966900BE6F6A /* Assets.xcassets */,
 				D87337AC2A80966900BE6F6A /* Info.plist */,
+				D87337F52A85BA9D00BE6F6A /* ReusableViewProtocol.swift */,
+				D87337F72A85BCFB00BE6F6A /* UserDefaultsHelper.swift */,
+				D87337F92A85C51100BE6F6A /* Endpoint.swift */,
+				D87337FD2A85C78100BE6F6A /* KakaoAPIManager.swift */,
+				D8A5D01D2A8CB14F008329BE /* CodableData.swift */,
+				D87337FB2A85C5CA00BE6F6A /* URL+Extension.swift */,
 			);
 			path = SeSACWeek4;
 			sourceTree = "<group>";
@@ -101,6 +127,7 @@
 		D87337F22A845F2F00BE6F6A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D87338012A85F9EB00BE6F6A /* AsyncViewController.swift */,
 				D87337CA2A821E2F00BE6F6A /* BeerListViewController.swift */,
 				D87337C62A81E78000BE6F6A /* VideoViewController.swift */,
 				D87337BD2A809C2D00BE6F6A /* TranslationViewController.swift */,
@@ -213,18 +240,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87337F82A85BCFB00BE6F6A /* UserDefaultsHelper.swift in Sources */,
 				D87337C92A820DCD00BE6F6A /* BeerViewController.swift in Sources */,
 				D87337BE2A809C2D00BE6F6A /* TranslationViewController.swift in Sources */,
+				D87338002A85E36400BE6F6A /* TranslateAPIManager.swift in Sources */,
 				D87337C72A81E78000BE6F6A /* VideoViewController.swift in Sources */,
+				D87337FA2A85C51100BE6F6A /* Endpoint.swift in Sources */,
 				D87337CB2A821E2F00BE6F6A /* BeerListViewController.swift in Sources */,
 				D87337C52A81C4CD00BE6F6A /* WeatherViewController.swift in Sources */,
 				D87337D72A83230B00BE6F6A /* VideoTableViewCell.swift in Sources */,
 				D87337A32A80966700BE6F6A /* ViewController.swift in Sources */,
+				D87337FC2A85C5CA00BE6F6A /* URL+Extension.swift in Sources */,
+				D8A5D01E2A8CB14F008329BE /* CodableData.swift in Sources */,
 				D87337D52A82398100BE6F6A /* Json.swift in Sources */,
+				D87337FE2A85C78100BE6F6A /* KakaoAPIManager.swift in Sources */,
 				D87337D22A82284A00BE6F6A /* BeerListCollectionViewCell.swift in Sources */,
 				D873379F2A80966700BE6F6A /* AppDelegate.swift in Sources */,
+				D87338022A85F9EB00BE6F6A /* AsyncViewController.swift in Sources */,
 				D87337A12A80966700BE6F6A /* SceneDelegate.swift in Sources */,
+				D8A5D0052A8A022A008329BE /* BoxOfficeData.swift in Sources */,
 				D87337C02A809C5C00BE6F6A /* APIKey.swift in Sources */,
+				D87337F62A85BA9E00BE6F6A /* ReusableViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

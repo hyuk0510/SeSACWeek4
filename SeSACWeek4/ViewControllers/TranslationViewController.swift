@@ -6,19 +6,21 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 class TranslationViewController: UIViewController {
 
     @IBOutlet var originalTextView: UITextView!
     @IBOutlet var translateTextView: UITextView!
     @IBOutlet var requestButton: UIButton!
-    
-    static let identifier = "TranslationViewController"
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        originalTextView.text = UserDefaultsHelper.standard.nickname
+        UserDefaults.standard.string(forKey: "nickname")
+        
+        UserDefaults.standard.set("선상혁", forKey: "nickname")
+        UserDefaultsHelper.standard.nickname = "졸려"
         
         originalTextView.text = ""
         translateTextView.text = ""
@@ -26,48 +28,8 @@ class TranslationViewController: UIViewController {
     }
     
     @IBAction func requestButtonPressed(_ sender: UIButton) {
-        let detectURL = "https://openapi.naver.com/v1/papago/detectLangs"
-        let translateURL = "https://openapi.naver.com/v1/papago/n2mt"
-        
-        let header: HTTPHeaders = [
-            "X-Naver-Client-Id": "\(APIKey.naverClientID)",
-            "X-Naver-Client-Secret": "\(APIKey.naverClientSecret)"
-        ]
-        
-        let detectParameters: Parameters = [
-            "query": originalTextView.text ?? ""
-        ]
-        
-        var translateParameters: Parameters = [
-            "target": "en",
-            "text": originalTextView.text ?? ""
-        ]
-        
-        AF.request(detectURL, method: .post, parameters: detectParameters, headers: header).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                
-                let source = json["langCode"].stringValue
-                translateParameters.updateValue(source, forKey: "source")
-                
-                AF.request(translateURL, method: .post, parameters: translateParameters, headers: header).validate().responseJSON { response in
-                    switch response.result {
-                    case .success(let value):
-                        let json = JSON(value)
-                        
-                        let data = json["message"]["result"]["translatedText"].stringValue
-                        
-                        self.translateTextView.text = data
-                        
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
+        TranslateAPIManager.shared.callRequest(text: originalTextView.text ?? "") { result in
+            self.translateTextView.text = result
         }
     }
 }

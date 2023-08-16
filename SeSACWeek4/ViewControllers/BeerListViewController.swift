@@ -10,8 +10,6 @@ import UIKit
 class BeerListViewController: UIViewController {
     
     @IBOutlet var beerListCollectionView: UICollectionView!
-
-    static let identifier = "BeerListViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,34 +6,17 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import Kingfisher
-
-struct Video {
-    let author: String
-    let date: String
-    let playtime: Int
-    let thumbnail: String
-    let title: String
-    let link: String
-    
-    var contents: String {
-        return "\(author) | \(playtime)회\n\(date)"
-    }
-}
 
 class VideoViewController: UIViewController {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var videoTableView: UITableView!
     
-    var videoList: [Video] = []
+    var videoResult: Video!
+    var videoList: [Document] = []
     var page = 1
     var isEnd = false //현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
-    
-    static let identifier = "VideoViewController"
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,47 +29,51 @@ class VideoViewController: UIViewController {
     }
     
     func callRequest(query: String, page: Int) {
-        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=10&page=\(page)"
-        let header: HTTPHeaders = ["Authorization": "KakaoAK \(APIKey.kakaoSearch)"]
-        AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                //print("JSON: \(json)")
-                
-                print(response.response?.statusCode)
-                
-                let statusCode = response.response?.statusCode ?? 500
-                
-                if statusCode == 200 {
-                    
-                    self.isEnd = json["meta"]["is_end"].boolValue
-
-                    for item in json["documents"].arrayValue {
-                        
-                        let author = item["author"].stringValue
-                        let date = item["datetime"].stringValue
-                        let playTime = item["play_time"].intValue
-                        let thumbNail = item["thumbnail"].stringValue
-                        let title = item["title"].stringValue
-                        let link = item["url"].stringValue
-                        
-                        let data = Video(author: author, date: date, playtime: playTime, thumbnail: thumbNail, title: title, link: link)
-                        
-                        self.videoList.append(data)
-                    }
-                    
-                    self.videoTableView.reloadData()
-                    
-                } else {
-                    print("다시 시도해주세요!")
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
+       
+        KakaoAPIManager.shared.callRequest(type: .video, query: query) { result in
+            self.videoResult = result
+            self.videoList = result.documents
+            self.videoTableView.reloadData()
         }
+        
+//        //AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                //print("JSON: \(json)")
+//
+//                print(response.response?.statusCode)
+//
+//                let statusCode = response.response?.statusCode ?? 500
+//
+//                if statusCode == 200 {
+//
+//                    self.isEnd = json["meta"]["is_end"].boolValue
+//
+//                    for item in json["documents"].arrayValue {
+//
+//                        let author = item["author"].stringValue
+//                        let date = item["datetime"].stringValue
+//                        let playTime = item["play_time"].intValue
+//                        let thumbNail = item["thumbnail"].stringValue
+//                        let title = item["title"].stringValue
+//                        let link = item["url"].stringValue
+//
+//                        let data = Video(author: author, date: date, playtime: playTime, thumbnail: thumbNail, title: title, link: link)
+//
+//                        self.videoList.append(data)
+//                    }
+//
+//                    self.videoTableView.reloadData()
+//
+//                } else {
+//                    print("다시 시도해주세요!")
+//                }
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }
 
@@ -110,7 +97,7 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
         for indexPath in indexPaths {
-            if videoList.count - 1 == indexPath.row && page < 15 && !isEnd {
+            if videoList.count - 1 == indexPath.row && page < 15 && !videoResult.meta.isEnd {
                 page += 1
                 callRequest(query: searchBar.text!, page: page)
             }
@@ -128,16 +115,12 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as? VideoTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier) as? VideoTableViewCell else {
             return UITableViewCell()
         }
+        let row = indexPath.row
         
-        cell.titleLabel.text = videoList[indexPath.row].title
-        cell.contentLabel.text = videoList[indexPath.row].contents
-        
-        if let url = URL(string: videoList[indexPath.row].thumbnail) {
-            cell.thumbnailImageView.kf.setImage(with: url)
-        }
+        cell.configureCell(data: videoList[row])
         
         return cell
     }
